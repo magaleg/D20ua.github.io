@@ -134,93 +134,71 @@
         }
     </style>
 </head>
-<div class="carousel-container">
-    <div class="arrow arrow-left" onclick="prevSlide()"></div>
+<body>
 
-    <a href="#" id="category-link" class="category-card-display fade">
-        <img src="" id="category-img" class="category-image" alt="Class Image">
-        <h2 id="category-name" class="category-title"></h2>
-        <p id="category-desc" class="category-description"></p>
-    </a>
+    <div class="carousel-container">
+        <div class="arrow arrow-left" onclick="prevSlide()"></div>
 
-    <div class="arrow arrow-right" onclick="nextSlide()"></div>
-</div>
+        <a href="#" id="category-link" class="category-card-display fade">
+            <img src="" id="category-img" class="category-image" alt="Class Image">
+            <h2 id="category-name" class="category-title"></h2>
+            <p id="category-desc" class="category-description"></p>
+        </a>
 
-<style>
-    /* Базові стилі для десктопа */
-    .carousel-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        min-height: 100vh;
-    }
+        <div class="arrow arrow-right" onclick="nextSlide()"></div>
+    </div>
 
-    .arrow {
-        width: 0;
-        height: 0;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+    <script>
+        const categories = [
+            { name: "Бард", desc: "Чарівник-артист, майстер на всі руки.", img: "assets/img/bard.png", url: "wiki/classes/bard.html" },
+            { name: "Боєць", desc: "Майстер зброї та тактики.", img: "assets/img/fighter.png", url: "wiki/classes/fighter.html" },
+            { name: "Варвар", desc: "Лютий воїн, що впадає в лють.", img: "assets/img/barbarian.png", url: "wiki/classes/barbarian.html" },
+            { name: "Друїд", desc: "Захисник природи, що перетворюється на звірів.", img: "assets/img/druid.png", url: "wiki/classes/druid.html" },
+            { name: "Жрець", desc: "Служитель божества, що використовує божественну магію.", img: "assets/img/cleric.png", url: "wiki/classes/cleric.html" },
+            { name: "Монах", desc: "Майстер бойових мистецтв.", img: "assets/img/monk.png", url: "wiki/classes/monk.html" },
+            { name: "Паладин", desc: "Святий воїн, що дає священну клятву.", img: "assets/img/paladin.png", url: "wiki/classes/paladin.html" },
+            { name: "Слідопит", desc: "Мисливець та провідник дикої місцевості.", img: "assets/img/ranger.png", url: "wiki/classes/ranger.html" },
+            { name: "Спритник", desc: "Майстер скритності, хитрощів та ударів у спину.", img: "assets/img/rogue.png", url: "wiki/classes/rogue.html" },
+            { name: "Чаклун", desc: "Той, хто уклав угоду з могутньою сутністю.", img: "assets/img/warlock.png", url: "wiki/classes/warlock.html" },
+            { name: "Чарівник", desc: "Вчений магії, що вивчає заклинання.", img: "assets/img/wizard.png", url: "wiki/classes/wizard.html" },
+            { name: "Чародій", desc: "Володар вродженої магії.", img: "assets/img/sorcerer.png", url: "wiki/classes/sorcerer.html" }
+        ];
 
-    .arrow-left {
-        border-top: 40px solid transparent;
-        border-bottom: 40px solid transparent;
-        border-right: 50px solid #d1d5b3;
-    }
+        let currentIndex = 0;
 
-    .arrow-right {
-        border-top: 40px solid transparent;
-        border-bottom: 40px solid transparent;
-        border-left: 50px solid #d1d5b3;
-    }
+        function updateCarousel() {
+            const card = document.getElementById('category-link');
+            const name = document.getElementById('category-name');
+            const desc = document.getElementById('category-desc');
+            const img = document.getElementById('category-img');
+            
+            card.classList.remove('fade');
+            void card.offsetWidth;
+            card.classList.add('fade');
 
-    /* --- АДАПТАЦІЯ ТІЛЬКИ ДЛЯ МОБІЛОК (до 650px) --- */
-    @media (max-width: 650px) {
-        .carousel-container {
-            flex-direction: column; /* Картка зверху, все інше знизу */
-            gap: 15px;
+            const cat = categories[currentIndex];
+            name.innerText = cat.name;
+            desc.innerText = cat.desc;
+            img.src = cat.img;
+            card.href = cat.url;
         }
 
-        .category-card-display {
-            width: 95%;
-            min-height: 380px;
-            /* Картка автоматично стане першою в колонці */
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % categories.length;
+            updateCarousel();
         }
 
-        /* Стилі для стрілок, щоб вони стали поруч внизу */
-        .arrow {
-            /* Стрілки залишаються елементами флекс-контейнера, 
-               але ми можемо їх згрупувати візуально */
-            display: inline-block;
-            margin: 10px 15px; /* Близьке розташування */
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + categories.length) % categories.length;
+            updateCarousel();
         }
 
-        /* Контейнер каруселі сам вирівняє їх у ряд, якщо ми додамо цей хак: */
-        .carousel-container {
-            display: grid;
-            grid-template-areas: 
-                "card card"
-                "prev next";
-            justify-items: center;
-        }
+        updateCarousel();
 
-        .category-card-display { grid-area: card; }
-        .arrow-left { 
-            grid-area: prev; 
-            border-top: 25px solid transparent;
-            border-bottom: 25px solid transparent;
-            border-right: 35px solid #d1d5b3;
-            justify-self: end; /* Притискаємо вліво до центру */
-        }
-        .arrow-right { 
-            grid-area: next; 
-            border-top: 25px solid transparent;
-            border-bottom: 25px solid transparent;
-            border-left: 35px solid #d1d5b3;
-            justify-self: start; /* Притискаємо вправо до центру */
-        }
-    }
-</style>
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight") nextSlide();
+            if (e.key === "ArrowLeft") prevSlide();
+        });
+    </script>
+</body>
 </html>
