@@ -2,49 +2,143 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Довідник | Головна</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            width: 90vh;
+            gap: 20px;
+            overflow: hidden;
+            background: #1a1a1a; /* Темний фон як на макеті */
         }
-        .category-card {
-            background: rgba(44, 24, 16, 0.1);
-            border: 1px solid var(--gold);
-            padding: 15px;
-            text-decoration: none;
-            color: var(--dark-red);
-            font-weight: bold;
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            cursor: pointer;
             transition: 0.3s;
-            text-align: center;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
         }
-        .category-card:hover {
-            background: var(--gold);
+
+        .arrow-left {
+            border-right: 60px solid #d1d5b3; /* Колір стрілок з макета */
+        }
+
+        .arrow-right {
+            border-left: 60px solid #d1d5b3;
+        }
+
+        .arrow:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .category-card-display {
+            width: 600px; /* Розмір центральної панелі */
+            height: 400px;
+            background-color: #4a5d45; /* Колір фону картки з макета */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            text-decoration: none;
             color: white;
-            transform: translateY(-3px);
+            transition: 0.5s ease-in-out;
+            position: relative;
+        }
+
+        .category-image {
+            max-width: 80%;
+            max-height: 70%;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            font-size: 2.5em;
+            font-variant: small-caps;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 0;
+        }
+
+        /* Анімація переходу */
+        .fade {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.3; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
-    <div class="scroll">
-        <h1>Йди звідси поки не став задротом і не почав вонять</h1>
-        <p>Якщо вже воняєш, обирай:</p>
-        
-        <div class="grid-container">
-            <a href="pages/races.html" class="category-card">Раси</a>
-            <a href="pages/classes.html" class="category-card">Класи</a>
-            <a href="pages/feats.html" class="category-card">Риси</a>
-            <a href="pages/backgrounds.html" class="category-card">Предісторії</a>
-            <a href="pages/spells.html" class="category-card">Закляття</a>
-            <a href="pages/weapons.html" class="category-card">Зброя</a>
-            <a href="pages/armor.html" class="category-card">Обладун04ки</a>
-            <a href="pages/gear.html" class="category-card">Спорядження</a>
-            <a href="pages/magic-items.html" class="category-card">Магічні предмети</a>
-            <a href="pages/bestiary.html" class="category-card">Тварі</a>
-        </div>
+
+    <div class="carousel-container">
+        <div class="arrow arrow-left" onclick="prevSlide()"></div>
+
+        <a href="#" id="category-link" class="category-card-display fade">
+            <img src="" id="category-img" class="category-image" alt="Category Image">
+            <h2 id="category-name" class="category-title"></h2>
+        </a>
+
+        <div class="arrow arrow-right" onclick="nextSlide()"></div>
     </div>
+
+    <script>
+        // Дані категорій
+        const categories = [
+            { name: "Бард", desc: "Чарівник-артист, майстер на всі руки.", img: "assets/img/bard.png", url: "wiki/classes/bard.html" },
+        { name: "Боєць", desc: "Майстер зброї та тактики.", img: "assets/img/fighter.png", url: "wiki/classes/fighter.html" },
+        { name: "Варвар", desc: "Лютий воїн, що впадає в лють.", img: "assets/img/barbarian.png", url: "wiki/classes/barbarian.html" },
+        { name: "Друїд", desc: "Захисник природи, що перетворюється на звірів.", img: "assets/img/druid.png", url: "wiki/classes/druid.html" },
+        { name: "Жрець", desc: "Служитель божества, що використовує божественну магію.", img: "assets/img/cleric.png", url: "wiki/classes/cleric.html" },
+        { name: "Монах", desc: "Майстер бойових мистецтв.", img: "assets/img/monk.png", url: "wiki/classes/monk.html" },
+        { name: "Паладин", desc: "Святий воїн, що дає священну клятву.", img: "assets/img/paladin.png", url: "wiki/classes/paladin.html" },
+        { name: "Слідопит", desc: "Мисливець та провідник дикої місцевості.", img: "assets/img/ranger.png", url: "wiki/classes/ranger.html" },
+        { name: "Спритник", desc: "Майстер скритності, хитрощів та ударів у спину.", img: "assets/img/rogue.png", url: "wiki/classes/rogue.html" },
+        { name: "Чаклун", desc: "Той, хто уклав угоду з могутньою сутністю.", img: "assets/img/warlock.png", url: "wiki/classes/warlock.html" },
+        { name: "Чарівник", desc: "Вчений магії, що вивчає заклинання.", img: "assets/img/wizard.png", url: "wiki/classes/wizard.html" },
+        { name: "Чародій", desc: "Володар вродженої магії.", img: "assets/img/sorcerer.png", url: "wiki/classes/sorcerer.html" }
+        ];
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const card = document.getElementById('category-link');
+            const name = document.getElementById('category-name');
+            const img = document.getElementById('category-img');
+            
+            // Додаємо анімацію
+            card.classList.remove('fade');
+            void card.offsetWidth;
+            card.classList.add('fade');
+
+            const cat = categories[currentIndex];
+            name.innerText = cat.name;
+            img.src = cat.img;
+            card.href = cat.url;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % categories.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + categories.length) % categories.length;
+            updateCarousel();
+        }
+        updateCarousel();
+    </script>
 </body>
 </html>

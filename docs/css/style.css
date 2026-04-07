@@ -1,11 +1,12 @@
 :root {
-    --gold: #c5a059;
-    --dark-red: #5e0000;
-    --parchment: #f4e4bc;
+    --gold: #a30e2b;
+    --dark-red: #806b8f;
+    --parchment: #1e1d25;
 }
 
 body {
-    background-color: #1a1a1a;
+   background-image: url('../pics/bg-pic.png');
+    background-size: cover;
     font-family: 'Georgia', serif;
     display: flex;
     justify-content: center;
@@ -16,8 +17,6 @@ body {
 .scroll {
     background-color: var(--parchment);
     padding: 40px;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     width: 100%;
     max-width: 800px;
     min-height: 80vh;
