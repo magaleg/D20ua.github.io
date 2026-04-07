@@ -8,29 +8,33 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background: #1a1a1a;
         }
 
+        /* Контейнер каруселі */
         .carousel-container {
             display: flex;
+            flex-direction: row; /* На десктопі все в рядок */
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 1200px;
-            gap: 10px;
+            max-width: 1000px;
+            gap: 20px;
             padding: 20px;
             box-sizing: border-box;
         }
 
+        /* Картка класу */
         .category-card-display {
+            order: 2; /* На десктопі вона посередині */
             width: 100%;
             max-width: 600px;
-            min-height: 450px;
-            background-color: rgb(74, 93, 69, 0.9); /* Трохи прозорості для фону */
+            min-height: 400px;
+            background-color: #4a5d45;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,164 +43,184 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
             text-decoration: none;
             color: white;
-            transition: 0.5s ease-in-out;
             padding: 20px;
             text-align: center;
+            transition: 0.5s;
         }
 
         .category-image {
-            width: auto;
-            height: auto;
             max-width: 80%;
             max-height: 250px;
             object-fit: contain;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .category-title {
-            font-size: clamp(1.8em, 5vw, 2.5em); /* Адаптивний розмір шрифту */
-            font-variant: small-caps;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            margin: 10px 0;
+            font-size: 2.2em;
+            margin: 5px 0;
             color: #f4e4bc;
+            font-variant: small-caps;
         }
 
         .category-description {
-            font-size: 1.1em;
+            font-size: 1em;
             color: #d1d5b3;
-            max-width: 90%;
             font-style: italic;
-            margin: 0;
         }
 
+        /* Стрілки (Десктоп) */
         .arrow {
             width: 0;
             height: 0;
             cursor: pointer;
             transition: 0.3s;
             filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-            flex-shrink: 0;
         }
 
         .arrow-left {
-            border-top: 30px solid transparent;
-            border-bottom: 30px solid transparent;
-            border-right: 40px solid #d1d5b3;
+            order: 1; /* Зліва */
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-right: 50px solid #d1d5b3;
         }
 
         .arrow-right {
-            border-top: 30px solid transparent;
-            border-bottom: 30px solid transparent;
-            border-left: 40px solid #d1d5b3;
+            order: 3; /* Справа */
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 50px solid #d1d5b3;
         }
 
-        /* Адаптація для мобільних пристроїв */
-        @media (max-width: 600px) {
+        /* --- АДАПТАЦІЯ ДЛЯ МОБІЛОК --- */
+        @media (max-width: 650px) {
             .carousel-container {
-                flex-direction: column; /* Елементи стають в стовпчик */
-                gap: 30px;
+                flex-wrap: wrap; /* Дозволяємо елементам переходити на новий рядок */
+                justify-content: center;
+                gap: 15px;
             }
 
             .category-card-display {
-                min-height: 400px;
-                order: 1; /* Картка зверху */
+                order: 1; /* Картка стає першою (зверху) */
+                width: 95%;
+                min-height: 350px;
             }
 
-            .controls {
-                display: flex;
-                gap: 50px;
-                order: 2; /* Стрілки знизу для зручності великого пальця */
+            /* Контейнер для стрілок, щоб вони були поруч */
+            .arrow {
+                order: 2; /* Стрілки йдуть після картки */
+                margin-top: 10px;
             }
 
+            /* Робимо стрілки маленькими */
             .arrow-left {
-                border-top: 25px solid transparent;
-                border-bottom: 25px solid transparent;
-                border-right: 35px solid #d1d5b3;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-right: 30px solid #d1d5b3;
+                margin-right: 15px; /* Відстань між стрілками */
             }
 
             .arrow-right {
-                border-top: 25px solid transparent;
-                border-bottom: 25px solid transparent;
-                border-left: 35px solid #d1d5b3;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-left: 30px solid #d1d5b3;
+                margin-left: 15px;
             }
         }
 
-        .fade {
-            animation: fadeIn 0.5s;
-        }
-
+        .fade { animation: fadeIn 0.5s; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0.2; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
-<body>
+<div class="carousel-container">
+    <div class="arrow arrow-left" onclick="prevSlide()"></div>
 
-    <div class="carousel-container">
-        <div class="arrow arrow-left" onclick="prevSlide()"></div>
+    <a href="#" id="category-link" class="category-card-display fade">
+        <img src="" id="category-img" class="category-image" alt="Class Image">
+        <h2 id="category-name" class="category-title"></h2>
+        <p id="category-desc" class="category-description"></p>
+    </a>
 
-        <a href="#" id="category-link" class="category-card-display fade">
-            <img src="" id="category-img" class="category-image" alt="Class Image">
-            <h2 id="category-name" class="category-title"></h2>
-            <p id="category-desc" class="category-description"></p>
-        </a>
+    <div class="arrow arrow-right" onclick="nextSlide()"></div>
+</div>
 
-        <div class="arrow arrow-right" onclick="nextSlide()"></div>
-    </div>
+<style>
+    /* Базові стилі для десктопа */
+    .carousel-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        min-height: 100vh;
+    }
 
-    <script>
-        const categories = [
-            { name: "Бард", desc: "Чарівник-артист, майстер на всі руки.", img: "assets/img/bard.png", url: "wiki/classes/bard.html" },
-            { name: "Боєць", desc: "Майстер зброї та тактики.", img: "assets/img/fighter.png", url: "wiki/classes/fighter.html" },
-            { name: "Варвар", desc: "Лютий воїн, що впадає в лють.", img: "assets/img/barbarian.png", url: "wiki/classes/barbarian.html" },
-            { name: "Друїд", desc: "Захисник природи, що перетворюється на звірів.", img: "assets/img/druid.png", url: "wiki/classes/druid.html" },
-            { name: "Жрець", desc: "Служитель божества, що використовує божественну магію.", img: "assets/img/cleric.png", url: "wiki/classes/cleric.html" },
-            { name: "Монах", desc: "Майстер бойових мистецтв.", img: "assets/img/monk.png", url: "wiki/classes/monk.html" },
-            { name: "Паладин", desc: "Святий воїн, що дає священну клятву.", img: "assets/img/paladin.png", url: "wiki/classes/paladin.html" },
-            { name: "Слідопит", desc: "Мисливець та провідник дикої місцевості.", img: "assets/img/ranger.png", url: "wiki/classes/ranger.html" },
-            { name: "Спритник", desc: "Майстер скритності, хитрощів та ударів у спину.", img: "assets/img/rogue.png", url: "wiki/classes/rogue.html" },
-            { name: "Чаклун", desc: "Той, хто уклав угоду з могутньою сутністю.", img: "assets/img/warlock.png", url: "wiki/classes/warlock.html" },
-            { name: "Чарівник", desc: "Вчений магії, що вивчає заклинання.", img: "assets/img/wizard.png", url: "wiki/classes/wizard.html" },
-            { name: "Чародій", desc: "Володар вродженої магії.", img: "assets/img/sorcerer.png", url: "wiki/classes/sorcerer.html" }
-        ];
+    .arrow {
+        width: 0;
+        height: 0;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-        let currentIndex = 0;
+    .arrow-left {
+        border-top: 40px solid transparent;
+        border-bottom: 40px solid transparent;
+        border-right: 50px solid #d1d5b3;
+    }
 
-        function updateCarousel() {
-            const card = document.getElementById('category-link');
-            const name = document.getElementById('category-name');
-            const desc = document.getElementById('category-desc');
-            const img = document.getElementById('category-img');
-            
-            card.classList.remove('fade');
-            void card.offsetWidth;
-            card.classList.add('fade');
+    .arrow-right {
+        border-top: 40px solid transparent;
+        border-bottom: 40px solid transparent;
+        border-left: 50px solid #d1d5b3;
+    }
 
-            const cat = categories[currentIndex];
-            name.innerText = cat.name;
-            desc.innerText = cat.desc;
-            img.src = cat.img;
-            card.href = cat.url;
+    /* --- АДАПТАЦІЯ ТІЛЬКИ ДЛЯ МОБІЛОК (до 650px) --- */
+    @media (max-width: 650px) {
+        .carousel-container {
+            flex-direction: column; /* Картка зверху, все інше знизу */
+            gap: 15px;
         }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % categories.length;
-            updateCarousel();
+        .category-card-display {
+            width: 95%;
+            min-height: 380px;
+            /* Картка автоматично стане першою в колонці */
         }
 
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + categories.length) % categories.length;
-            updateCarousel();
+        /* Стилі для стрілок, щоб вони стали поруч внизу */
+        .arrow {
+            /* Стрілки залишаються елементами флекс-контейнера, 
+               але ми можемо їх згрупувати візуально */
+            display: inline-block;
+            margin: 10px 15px; /* Близьке розташування */
         }
 
-        updateCarousel();
+        /* Контейнер каруселі сам вирівняє їх у ряд, якщо ми додамо цей хак: */
+        .carousel-container {
+            display: grid;
+            grid-template-areas: 
+                "card card"
+                "prev next";
+            justify-items: center;
+        }
 
-        // Керування клавіатурою
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowRight") nextSlide();
-            if (e.key === "ArrowLeft") prevSlide();
-        });
-    </script>
-</body>
+        .category-card-display { grid-area: card; }
+        .arrow-left { 
+            grid-area: prev; 
+            border-top: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+            border-right: 35px solid #d1d5b3;
+            justify-self: end; /* Притискаємо вліво до центру */
+        }
+        .arrow-right { 
+            grid-area: next; 
+            border-top: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+            border-left: 35px solid #d1d5b3;
+            justify-self: start; /* Притискаємо вправо до центру */
+        }
+    }
+</style>
 </html>
