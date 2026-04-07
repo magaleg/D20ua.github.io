@@ -16,14 +16,15 @@ body {
 /* Адаптивна обгортка для сторінок вікі */
 .scroll {
     background-color: var(--parchment);
-    padding: 20px;
+    padding: clamp(15px, 5vw, 40px); /* Падінги зменшуються на малих екранах */
     width: 90%;
     max-width: 800px;
-    margin: 40px auto;
-    min-height: 80vh;
+    margin: 20px auto;
+    min-height: 85vh;
     border: 2px solid var(--gold);
     box-sizing: border-box;
     color: #d1d1d1;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
 
 h1 { 
