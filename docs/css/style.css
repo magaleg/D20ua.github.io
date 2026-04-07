@@ -5,25 +5,32 @@
 }
 
 body {
-   background-image: url('../pics/bg-pic.png');
+    background-image: url('../pics/bg-pic.png');
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     font-family: 'Georgia', serif;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
     margin: 0;
 }
 
+/* Адаптивна обгортка для сторінок вікі */
 .scroll {
     background-color: var(--parchment);
-    padding: 40px;
-    width: 100%;
+    padding: 20px;
+    width: 90%;
     max-width: 800px;
+    margin: 40px auto;
     min-height: 80vh;
     border: 2px solid var(--gold);
+    box-sizing: border-box;
+    color: #d1d1d1;
 }
 
-h1 { color: var(--dark-red); border-bottom: 2px solid var(--gold); }
+h1 { 
+    color: var(--dark-red); 
+    border-bottom: 2px solid var(--gold);
+    font-size: clamp(1.5em, 5vw, 2.5em);
+}
 
 .wiki-list {
     list-style: none;
@@ -31,14 +38,27 @@ h1 { color: var(--dark-red); border-bottom: 2px solid var(--gold); }
 }
 
 .wiki-list li {
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px dotted var(--gold);
 }
 
 .wiki-list a {
     color: var(--dark-red);
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    display: block; /* Полегшує натискання на мобільних */
 }
 
-.wiki-list a:hover { text-decoration: underline; }
+.wiki-list a:hover { 
+    text-decoration: underline;
+    color: var(--gold);
+}
+
+/* Медіа-запит для дуже маленьких екранів */
+@media (max-width: 480px) {
+    .scroll {
+        padding: 15px;
+        width: 95%;
+        margin: 10px auto;
+    }
+}
