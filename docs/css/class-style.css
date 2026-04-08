@@ -1,0 +1,172 @@
+:root {
+    --gold: #2b2224;
+    --dark-red: #e9e5ae;
+    --parchment: #1e1d25;
+}
+
+@font-face {
+    font-family: 'UAF Memory';
+    src: url('../assets/fonts/UAFMemory-Black.otf') format('opentype');
+    font-weight: 900;
+}
+
+body {
+    background-image: url('../assets/img/bg-pic.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'UAF Memory', serif;
+    margin: 0;
+}
+
+.scroll {
+    background-color: var(--parchment);
+    padding: clamp(15px, 5vw, 40px);
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    min-height: 85vh;
+    border: 2px solid var(--gold);
+    box-sizing: border-box;
+    color: #d1d1d1;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+h1 { 
+    color: var(--dark-red); 
+    border-bottom: 2px solid var(--gold);
+    font-size: clamp(1.5em, 5vw, 2.5em);
+    margin-top: 0;
+    text-align: center; /* Заголовок класу по центру */
+}
+
+/* Додано стилі для заголовків H2 */
+h2 {
+    color: var(--dark-red);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+.wiki-list {
+    list-style: none;
+    padding: 0;
+}
+
+.wiki-list li {
+    padding: 12px 0;
+    border-bottom: 1px dotted var(--gold);
+}
+
+.wiki-list a {
+    color: var(--dark-red);
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+}
+
+.wiki-list a:hover { 
+    text-decoration: underline;
+    color: var(--gold);
+}
+
+/* =========================================
+   НОВІ СТИЛІ ДЛЯ СТОРІНОК КЛАСІВ
+========================================= */
+
+/* Кнопка повернення */
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--dark-red);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+.back-link:hover { text-decoration: underline; color: var(--gold); }
+
+/* Епічна цитата */
+.epic-quote {
+    text-align: center;
+    font-style: italic;
+    color: #a8a8a8; /* Трохи світліший сірий для читабельності */
+    margin: 0 20px 30px;
+    font-size: 1.1em;
+}
+
+/* Таблиця характеристик */
+.table-responsive {
+    overflow-x: auto; /* Дозволяє скролити таблицю на телефонах */
+    margin: 20px 0;
+}
+
+.dnd-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif; /* Для таблиць краще дефолтний шрифт, щоб цифри легко читалися */
+    color: #d1d1d1;
+}
+
+.dnd-table th, .dnd-table td {
+    padding: 10px 12px;
+    border: 1px solid var(--gold);
+    text-align: left;
+}
+
+.dnd-table th {
+    background-color: rgba(0, 0, 0, 0.3); /* Легке затемнення фону шапки */
+    color: var(--dark-red);
+    font-weight: bold;
+}
+
+.dnd-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03); /* Ефект зебри для зручності */
+}
+
+/* Колонки для Хітів і Майстерності */
+.columns {
+    display: flex;
+    gap: 40px;
+}
+.column { flex: 1; }
+.column p { margin: 8px 0; }
+
+/* Особливості класу */
+.feature-item { margin-bottom: 25px; }
+
+.feature-item h3 {
+    color: var(--dark-red);
+    margin-bottom: 5px;
+    font-size: 1.3em;
+}
+
+.feature-item h3 span {
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #888; /* Сірий колір для тексту (Рівень Х) */
+}
+
+/* Картка підкласу */
+.subclass-card {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-left: 4px solid var(--dark-red);
+    border-radius: 4px;
+    margin-top: 20px;
+}
+.subclass-card h3 {
+    margin-top: 0;
+    color: var(--dark-red);
+}
+
+/* Адаптація */
+@media (max-width: 650px) {
+    .columns { flex-direction: column; gap: 10px; }
+}
+
+@media (max-width: 480px) {
+    .scroll {
+        padding: 15px;
+        width: 95%;
+        margin: 10px auto;
+    }
+}

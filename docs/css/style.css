@@ -1,15 +1,21 @@
 :root {
-    --gold: #a30e2b;
-    --dark-red: #806b8f;
+    --gold: #2b2224;
+    --dark-red: #e9e5ae;
     --parchment: #1e1d25;
 }
 
+@font-face {
+    font-family: 'UAF Memory';
+    src: url('../assets/fonts/UAFMemory-Black.otf') format('opentype');
+    font-weight: 900;
+}
+
 body {
-    background-image: url('../pics/bg-pic.png');
+    background-image: url('../assets/img/bg-pic.png');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    font-family: 'Georgia', serif;
+    font-family: 'UAF Memory', serif;
     margin: 0;
 }
 
