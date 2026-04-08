@@ -9,6 +9,44 @@
     src: url('../assets/fonts/UAFMemory-Black.otf') format('opentype');
     font-weight: 900;
 }
+@font-face {
+    font-family: 'UAF Memory';
+    src: url('../assets/fonts/UAFMemory-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UAF Memory';
+    src: url('../assets/fonts/UAFMemory-Light.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UAF Memory';
+    src: url('../assets/fonts/UAFMemory-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UAF Memory';
+    src: url('../assets/fonts/UAFMemory-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UAF Memory';
+    src: url('../assets/fonts/UAFMemory-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+    /* src: url('../assets/fonts/UAFMemory-Bold.otf') format('opentype'); */
+    /* src: url('../assets/fonts/UAFMemory-CompactBlack.otf') format('opentype'); */
+    /* src: url('../assets/fonts/UAFMemory-RegularSmallCaps.otf') format('opentype'); */
 
 body {
     background-image: url('../assets/img/bg-pic.png');
@@ -33,19 +71,29 @@ body {
 }
 
 h1 { 
+    font-family: 'UAF Memory', serif;
+    font-weight: 300;
+    font-size: clamp(1.5em, 5vw, 2.5em);
     color: var(--dark-red); 
     border-bottom: 2px solid var(--gold);
     font-size: clamp(1.5em, 5vw, 2.5em);
     margin-top: 0;
-    text-align: center; /* Заголовок класу по центру */
+    text-align: center;
 }
 
-/* Додано стилі для заголовків H2 */
+
 h2 {
+    font-family: 'UAF Memory', serif;
+    font-weight: 300;
     color: var(--dark-red);
     border-bottom: 1px solid var(--gold);
     padding-bottom: 5px;
     margin-top: 30px;
+}
+
+h3 {
+    font-family: 'UAF Memory', serif;
+    font-weight: 400;
 }
 
 .wiki-list {
@@ -74,7 +122,6 @@ h2 {
    НОВІ СТИЛІ ДЛЯ СТОРІНОК КЛАСІВ
 ========================================= */
 
-/* Кнопка повернення */
 .back-link {
     display: inline-block;
     margin-bottom: 20px;
@@ -84,25 +131,26 @@ h2 {
 }
 .back-link:hover { text-decoration: underline; color: var(--gold); }
 
-/* Епічна цитата */
 .epic-quote {
-    text-align: center;
+    font-family: 'UAF Memory', serif;
+    font-weight: 300;
     font-style: italic;
-    color: #a8a8a8; /* Трохи світліший сірий для читабельності */
+    text-align: center;
+    color: #a8a8a8;
     margin: 0 20px 30px;
-    font-size: 1.1em;
+    font-size: 1.3em;
 }
 
-/* Таблиця характеристик */
 .table-responsive {
     overflow-x: auto; /* Дозволяє скролити таблицю на телефонах */
     margin: 20px 0;
 }
 
 .dnd-table {
+    font-family: 'UAF Memory', serif;
+    font-weight: 300;
     width: 100%;
     border-collapse: collapse;
-    font-family: sans-serif; /* Для таблиць краще дефолтний шрифт, щоб цифри легко читалися */
     color: #d1d1d1;
 }
 
