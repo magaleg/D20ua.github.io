@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[НАЗВА КЛАСУ] | D&D Довідник</title>
-    <link rel="stylesheet" href="..\..\css\class-style.css"> 
+    <title>Бард | D&D Довідник</title>
+    <link rel="stylesheet" href="../../css/class-style.css"> 
+    <style>
+        /* Стилі спеціально щоб таблиця барда влазила без скролу */
+        .dnd-table th, .dnd-table td {
+            padding: 8px 4px; /* Зменшуємо бокові відступи */
+            text-align: center;
+        }
+        .dnd-table .feature-col {
+            text-align: left;
+            width: 35%; /* Віддаємо найбільше місця тексту */
+        }
+        .dnd-table .slot-col {
+            width: 3%; /* Робимо комірки слотів максимально тонкими */
+            min-width: 15px;
+            color: #ccc; /* Трохи приглушуємо колір слотів, щоб не рябіло */
+        }
+        .dnd-table td.slot-active {
+            color: #fff; /* Активні слоти робимо яскравішими */
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,8 +32,8 @@
         <a href="../../index.html" class="back-link">← Назад до Класів</a>
 
         <header class="class-header">
-            <h1>[НАЗВА КЛАСУ]</h1>
-            <p class="epic-quote">"[ЕПІЧНО-МУДРЬОНИЙ ОПИС ВІД ЯРІКА. Наприклад: Той, хто підкорив стихії своєю волею...]"</p>
+            <h1>Бард</h1>
+            <p class="epic-quote">"Струни, ноти, фанаток орди"</p>
         </header>
 
         <section class="class-section">
@@ -21,29 +41,107 @@
                 <table class="dnd-table">
                     <thead>
                         <tr>
-                            <th>Рівень</th>
-                            <th>Бонус Майстерності</th>
-                            <th>Особливості</th>
-                            <th>[Додаткова 1: Заряди/Слоти]</th>
-                            <th>[Додаткова 2: Дамаг/Відомі закляття]</th>
+                            <th rowspan="2">Рівень</th>
+                            <th rowspan="2">Бонус Майст.</th>
+                            <th rowspan="2" class="feature-col">Особливості</th>
+                            <th rowspan="2">Замовляння</th>
+                            <th rowspan="2">Заклинання</th>
+                            <th colspan="9">Слоти заклинань за рівнем</th>
+                        </tr>
+                        <tr>
+                            <th class="slot-col">1</th>
+                            <th class="slot-col">2</th>
+                            <th class="slot-col">3</th>
+                            <th class="slot-col">4</th>
+                            <th class="slot-col">5</th>
+                            <th class="slot-col">6</th>
+                            <th class="slot-col">7</th>
+                            <th class="slot-col">8</th>
+                            <th class="slot-col">9</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>+2</td>
-                            <td>[Особливість 1], [Особливість 2]</td>
-                            <td>[Значення]</td>
-                            <td>[Значення]</td>
+                            <td>1</td><td>+2</td><td class="feature-col">Виконання заклинань, Бардівське натхнення (1к6)</td><td>2</td><td>4</td>
+                            <td class="slot-active">2</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td>+2</td>
-                            <td>[Особливість]</td>
-                            <td>[Значення]</td>
-                            <td>[Значення]</td>
+                            <td>2</td><td>+2</td><td class="feature-col">Майстер на всі руки, Пісня відпочинку</td><td>2</td><td>5</td>
+                            <td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
                         </tr>
-                        </tbody>
+                        <tr>
+                            <td>3</td><td>+2</td><td class="feature-col">Колегія бардів, Експертиза</td><td>2</td><td>6</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>4</td><td>+2</td><td class="feature-col">Підвищення характеристик</td><td>3</td><td>7</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>5</td><td>+3</td><td class="feature-col">Бардівське натхнення (1к8), Джерело натхнення</td><td>3</td><td>8</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>6</td><td>+3</td><td class="feature-col">Контрпричарування, Уміння колегії бардів</td><td>3</td><td>9</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>7</td><td>+3</td><td class="feature-col">-</td><td>3</td><td>10</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">1</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>8</td><td>+3</td><td class="feature-col">Підвищення характеристик</td><td>3</td><td>11</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>9</td><td>+4</td><td class="feature-col">Пісня відпочинку (1к8)</td><td>3</td><td>12</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">1</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>10</td><td>+4</td><td class="feature-col">Бардівське натхнення (1к10), Експертиза, Таємниці магії</td><td>4</td><td>14</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>11</td><td>+4</td><td class="feature-col">-</td><td>4</td><td>15</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>12</td><td>+4</td><td class="feature-col">Підвищення характеристик</td><td>4</td><td>15</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-col">-</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>13</td><td>+5</td><td class="feature-col">Пісня відпочинку (1к10)</td><td>4</td><td>16</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>14</td><td>+5</td><td class="feature-col">Таємниці магії, Уміння колегії бардів</td><td>4</td><td>18</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-col">-</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>15</td><td>+5</td><td class="feature-col">Бардівське натхнення (1к12)</td><td>4</td><td>19</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>16</td><td>+5</td><td class="feature-col">Підвищення характеристик</td><td>4</td><td>19</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-col">-</td>
+                        </tr>
+                        <tr>
+                            <td>17</td><td>+6</td><td class="feature-col">Пісня відпочинку (1к12)</td><td>4</td><td>20</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-active">1</td>
+                        </tr>
+                        <tr>
+                            <td>18</td><td>+6</td><td class="feature-col">Таємниці магії</td><td>4</td><td>22</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-active">1</td>
+                        </tr>
+                        <tr>
+                            <td>19</td><td>+6</td><td class="feature-col">Підвищення характеристик</td><td>4</td><td>22</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-active">1</td><td class="slot-active">1</td>
+                        </tr>
+                        <tr>
+                            <td>20</td><td>+6</td><td class="feature-col">Неперевершене натхнення</td><td>4</td><td>22</td>
+                            <td class="slot-active">4</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">3</td><td class="slot-active">2</td><td class="slot-active">2</td><td class="slot-active">1</td><td class="slot-active">1</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </section>
@@ -51,27 +149,28 @@
         <section class="class-section columns">
             <div class="column">
                 <h2>Хіти (HP)</h2>
-                <p><strong>Кістка хітів:</strong> 1d[Х] за кожен рівень [назва класу]</p>
-                <p><strong>Хіти на 1 рівні:</strong> [Макс. значення кістки] + ваш модифікатор Статури</p>
-                <p><strong>Хіти на вищих рівнях:</strong> 1d[Х] (або [Середнє значення]) + модифікатор Статури за кожен рівень</p>
+                <p><strong>Кістка хітів:</strong> 1к8 за кожен рівень барда</p>
+                <p><strong>Хіти на 1 рівні:</strong> 8 + ваш модифікатор Статури (Тілобудови)</p>
+                <p><strong>Хіти на вищих рівнях:</strong> 1к8 (або 5) + модифікатор Статури за кожен рівень після 1-го</p>
             </div>
 
             <div class="column">
                 <h2>Майстерності</h2>
-                <p><strong>Броня:</strong> [Всі види броні, які вони носять]</p>
-                <p><strong>Зброя:</strong> [Проста, військова, тощо]</p>
-                <p><strong>Інструменти:</strong> [Наприклад: Набір злодія, або Жодних]</p>
-                <p><strong>Рятівні кидки:</strong> [Характеристика 1], [Характеристика 2]</p>
-                <p><strong>Навички:</strong> Виберіть [Кількість] з: [Перелік навичок]</p>
+                <p><strong>Броня:</strong> Легкі обладунки</p>
+                <p><strong>Зброя:</strong> Проста зброя, довгі мечі, короткі мечі, рапіри, ручні арбалети</p>
+                <p><strong>Інструменти:</strong> Три музичні інструменти на твій вибір</p>
+                <p><strong>Рятівні кидки:</strong> Вправність, Харизма</p>
+                <p><strong>Навички:</strong> Виберіть три будь-які навички</p>
             </div>
         </section>
 
         <section class="class-section">
             <h2>Початкове спорядження</h2>
             <ul class="wiki-list">
-                <li>(а) [Річ 1] або (б) [Річ 2]</li>
-                <li>(а) [Річ 3] або (б) [Річ 4]</li>
-                <li>[Набір дослідника / Набір вченого тощо]</li>
+                <li>(а) довгий меч, (б) рапіра або (в) будь-яка проста зброя</li>
+                <li>(а) набір артиста або (б) набір дипломата</li>
+                <li>(а) лютня або (б) будь-який музичний інструмент</li>
+                <li>Шкіряний обладунок і кинджал</li>
             </ul>
         </section>
 
@@ -79,32 +178,77 @@
             <h2>Особливості Класу</h2>
             
             <div class="feature-item">
-                <h3>[Назва здібності] <span>(Рівень [Х])</span></h3>
-                <p>[Опис здібності людською мовою, без води. Наприклад: Коли ви здійснюєте атаку...]</p>
+                <h3>Виконання заклинань <span>(Рівень 1)</span></h3>
+                <p>За допомогою музики ти навчився змінювати тканину реальності відповідно до власної волі. Твоя магія виникає із сердечності та душевності, яку ти вкладаєш у виконання музики і проголошення промов. Базовою характеристикою є Харизма.<br>
+                <strong>СК рятунку від заклинань</strong> = 8 + твій бонус майстерності + твій модифікатор Харизми.<br>
+                <strong>Модифікатор атаки заклинань</strong> = твій бонус майстерності + твій модифікатор Харизми.</p>
             </div>
 
             <div class="feature-item">
-                <h3>[Назва здібності 2] <span>(Рівень [Х])</span></h3>
-                <p>[Опис другої здібності...]</p>
+                <h3>Бардівське натхнення <span>(Рівень 1)</span></h3>
+                <p>У свій хід використай бонусний вчинок, обравши іншу істоту в межах 12 метрів від тебе, яка здатна тебе чути. Вона отримує кубик Бардівського Натхнення (1к6). Протягом наступних 10 хвилин істота може один раз кинути його і додати результат до перевірки характеристики, кидка атаки або рятувального кидка. Кількість використань дорівнює модифікатору Харизми. Кубик стає 1к8 на 5-му, 1к10 на 10-му та 1к12 на 15-му рівні.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Майстер на всі руки <span>(Рівень 2)</span></h3>
+                <p>Ти можеш додавати половину твого бонуса майстерності (округлену в меншу сторону) до будь-яких перевірок характеристик, до яких цей бонус ще не додавався.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Пісня відпочинку <span>(Рівень 2)</span></h3>
+                <p>За допомогою заспокійливої музики ти можеш допомогти союзникам відновити сили. Кожна істота, яка чує виступ під час короткого відпочинку і витрачає Кубик Здоров’я, відновлює додатково 1к6 здоров’я. Бонус росте: 1к8 на 9-му, 1к10 на 13-му та 1к12 на 17-му рівні.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Експертиза <span>(Рівень 3)</span></h3>
+                <p>Вибери дві навички, якими ти володієш. Твій бонус майстерності подвоюється для всіх перевірок характеристик при використанні цих навичок. На 10 рівні вибираєш ще дві навички.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Джерело натхнення <span>(Рівень 5)</span></h3>
+                <p>Ти відновлюєш усі витрачені використання Бардівського Натхнення після завершення як короткого, так і тривалого відпочинку.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Контрпричарування <span>(Рівень 6)</span></h3>
+                <p>Використай вчинок, щоб розпочати виступ до кінця твого наступного ходу. Ти та усі союзники в межах 6 метрів отримують перевагу на кидки рятунку проти переляку та причарування, якщо чують тебе.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Таємниці магії <span>(Рівень 10)</span></h3>
+                <p>Вибери два заклинання зі списків будь-яких класів. Ці заклинання вважаються для тебе заклинаннями барда і не враховуються до ліміту "Відомих Заклинань". Ти вивчаєш ще два на 14-му та два на 18-му рівні.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Неперевершене натхнення <span>(Рівень 20)</span></h3>
+                <p>Якщо ти здійснюєш кидок ініціативи, а в тебе немає доступних Бардівських Натхнень, ти відновлюєш одне використання.</p>
             </div>
         </section>
 
         <section class="class-section subclasses">
-            <h2>Підкласи: [Назва групи підкласів, напр. Школи Магії]</h2>
-            <p>На [Х]-му рівні ви обираєте [шлях/колегію/домен]...</p>
+            <h2>Колегії Бардів</h2>
+            <p>На 3-му рівні ти заглиблюєшся в традиції обраної тобою колегії бардів, отримуючи відповідні уміння на 3, 6 та 14 рівнях.</p>
 
             <div class="subclass-card">
-                <h3>[Назва конкретного підкласу 1]</h3>
-                <p>[Короткий художній опис: Для цих хлопців лють — це лише інструмент...]</p>
+                <h3>Колегія Доблесті</h3>
+                <p>Відважні скальди, чиї оповіді не дають забути великих героїв минулого і надихають на подвиги сучасників. Вони подорожують, щоб стати очевидцями великих подій.</p>
                 <ul class="wiki-list">
-                    <li><strong>[Фіча підкласу] (Рівень [Х]):</strong> [Короткий опис, що вона робить]</li>
-                    <li><strong>[Фіча підкласу] (Рівень [Х]):</strong> [Короткий опис, що вона робить]</li>
+                    <li><strong>Бонусні володіння (Рівень 3):</strong> Володіння середніми обладунками, щитами і бойовою зброєю.</li>
+                    <li><strong>Бойове натхнення (Рівень 3):</strong> Істота може додати кубик Натхнення до кидка ушкоджень зброєю, або (як реакцію) до свого Класу Обладунку (КО) проти атаки.</li>
+                    <li><strong>Додаткова атака (Рівень 6):</strong> Ти можеш зробити дві атаки замість однієї під час вчинку Атака.</li>
+                    <li><strong>Бойова магія (Рівень 14):</strong> Якщо ти виконуєш заклинання як вчинок, ти можеш здійснити одну атаку зброєю як бонусний вчинок.</li>
                 </ul>
             </div>
             
             <div class="subclass-card">
-                <h3>[Назва конкретного підкласу 2]</h3>
-                <p>[Опис іншого підкласу...]</p>
+                <h3>Колегія Знань</h3>
+                <p>Ці барди цікавляться усім на світі. Вони використовують свій талант, щоб зачарувати публіку, а їх лояльність належить погоні за красою і правдою.</p>
+                <ul class="wiki-list">
+                    <li><strong>Бонусні володіння (Рівень 3):</strong> Володіння трьома навичками на власний вибір.</li>
+                    <li><strong>Гостре слівце (Рівень 3):</strong> Як реакцію ти можеш відняти кубик Натхнення від кидка атаки, ушкоджень або перевірки характеристики ворога в межах 12 метрів.</li>
+                    <li><strong>Додаткові таємниці магії (Рівень 6):</strong> Вивчи два заклинання на вибір зі списків будь-яких класів.</li>
+                    <li><strong>Неперевершена навичка (Рівень 14):</strong> Ти можеш додати кубик Натхнення до своєї перевірки характеристики.</li>
+                </ul>
             </div>
         </section>
 

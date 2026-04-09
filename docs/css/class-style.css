@@ -1,5 +1,5 @@
 :root {
-    --gold: #2b2224;
+    --brown: #2b2224;
     --dark-red: #e9e5ae;
     --parchment: #1e1d25;
 }
@@ -61,10 +61,10 @@ body {
     background-color: var(--parchment);
     padding: clamp(15px, 5vw, 40px);
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 20px auto;
     min-height: 85vh;
-    border: 2px solid var(--gold);
+    border: 2px solid var(--brown);
     box-sizing: border-box;
     color: #d1d1d1;
     box-shadow: 0 0 30px rgba(0,0,0,0.8);
@@ -75,7 +75,7 @@ h1 {
     font-weight: 300;
     font-size: clamp(1.5em, 5vw, 2.5em);
     color: var(--dark-red); 
-    border-bottom: 2px solid var(--gold);
+    border-bottom: 2px solid var(--brown);
     font-size: clamp(1.5em, 5vw, 2.5em);
     margin-top: 0;
     text-align: center;
@@ -86,7 +86,7 @@ h2 {
     font-family: 'UAF Memory', serif;
     font-weight: 300;
     color: var(--dark-red);
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--brown);
     padding-bottom: 5px;
     margin-top: 30px;
 }
@@ -103,7 +103,7 @@ h3 {
 
 .wiki-list li {
     padding: 12px 0;
-    border-bottom: 1px dotted var(--gold);
+    border-bottom: 1px dotted var(--brown);
 }
 
 .wiki-list a {
@@ -115,12 +115,9 @@ h3 {
 
 .wiki-list a:hover { 
     text-decoration: underline;
-    color: var(--gold);
+    color: var(--brown);
 }
 
-/* =========================================
-   НОВІ СТИЛІ ДЛЯ СТОРІНОК КЛАСІВ
-========================================= */
 
 .back-link {
     display: inline-block;
@@ -129,7 +126,7 @@ h3 {
     text-decoration: none;
     font-size: 1.1em;
 }
-.back-link:hover { text-decoration: underline; color: var(--gold); }
+.back-link:hover { text-decoration: underline; color: var(--brown); }
 
 .epic-quote {
     font-family: 'UAF Memory', serif;
@@ -156,7 +153,7 @@ h3 {
 
 .dnd-table th, .dnd-table td {
     padding: 10px 12px;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--brown);
     text-align: left;
 }
 

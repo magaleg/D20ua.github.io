@@ -1,6 +1,6 @@
 :root {
-    --gold: #2b2224;
-    --dark-red: #e9e5ae;
+    --brown: #2b2224;
+    --dark-red: #ecebd3;
     --parchment: #1e1d25;
 }
 
@@ -27,15 +27,16 @@ body {
     max-width: 800px;
     margin: 20px auto;
     min-height: 85vh;
-    border: 2px solid var(--gold);
+    border: 2px solid var(--brown);
     box-sizing: border-box;
     color: #d1d1d1;
     box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
 
 h1 { 
-    color: var(--dark-red); 
-    border-bottom: 2px solid var(--gold);
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(66, 54, 42, 1);
+    border-bottom: 2px solid var(--brown);
     font-size: clamp(1.5em, 5vw, 2.5em);
 }
 
@@ -46,7 +47,7 @@ h1 {
 
 .wiki-list li {
     padding: 12px 0;
-    border-bottom: 1px dotted var(--gold);
+    border-bottom: 1px dotted var(--brown);
 }
 
 .wiki-list a {
@@ -58,7 +59,7 @@ h1 {
 
 .wiki-list a:hover { 
     text-decoration: underline;
-    color: var(--gold);
+    color: var(--brown);
 }
 
 /* Медіа-запит для дуже маленьких екранів */

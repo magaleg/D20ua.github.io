@@ -22,10 +22,9 @@
             margin-bottom: 20px;
         }
 
-        /* Контейнер каруселі */
         .carousel-container {
             display: flex;
-            flex-direction: row; /* На десктопі все в рядок */
+            flex-direction: row; 
             align-items: center;
             justify-content: center;
             width: 100%;
@@ -35,13 +34,13 @@
             box-sizing: border-box;
         }
 
-        /* Картка класу */
+
         .category-card-display {
-            order: 2; /* На десктопі вона посередині */
+            order: 2; 
             width: 100%;
             max-width: 600px;
             min-height: 400px;
-            background-color: rgba(74, 93, 69, 0.9);
+            background-color: rgba(39, 30, 30, 0.9);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -98,32 +97,30 @@
             border-left: 50px solid #d1d5b3;
         }
 
-        /* --- АДАПТАЦІЯ ДЛЯ МОБІЛОК --- */
+
         @media (max-width: 650px) {
             .carousel-container {
-                flex-wrap: wrap; /* Дозволяємо елементам переходити на новий рядок */
+                flex-wrap: wrap; 
                 justify-content: center;
                 gap: 15px;
             }
 
             .category-card-display {
-                order: 1; /* Картка стає першою (зверху) */
+                order: 1; 
                 width: 95%;
                 min-height: 350px;
             }
 
-            /* Контейнер для стрілок, щоб вони були поруч */
             .arrow {
-                order: 2; /* Стрілки йдуть після картки */
+                order: 2; 
                 margin-top: 10px;
             }
 
-            /* Робимо стрілки маленькими */
             .arrow-left {
                 border-top: 20px solid transparent;
                 border-bottom: 20px solid transparent;
                 border-right: 30px solid #d1d5b3;
-                margin-right: 15px; /* Відстань між стрілками */
+                margin-right: 15px;
             }
 
             .arrow-right {
