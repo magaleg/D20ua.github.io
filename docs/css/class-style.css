@@ -61,7 +61,7 @@ body {
     background-color: var(--parchment);
     padding: clamp(15px, 5vw, 40px);
     width: 90%;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 20px auto;
     min-height: 85vh;
     border: 2px solid var(--brown);
@@ -94,6 +94,13 @@ h2 {
 h3 {
     font-family: 'UAF Memory', serif;
     font-weight: 400;
+}
+.spell-table {
+    font-family: 'UAF Memory', serif;
+    font-weight: 300;
+    width: 100%;
+    border-collapse: collapse;
+    color: #d1d1d1;
 }
 
 .wiki-list {
@@ -139,7 +146,7 @@ h3 {
 }
 
 .table-responsive {
-    overflow-x: auto; /* Дозволяє скролити таблицю на телефонах */
+    overflow-x: auto; 
     margin: 20px 0;
 }
 
@@ -176,7 +183,10 @@ h3 {
 .column p { margin: 8px 0; }
 
 /* Особливості класу */
-.feature-item { margin-bottom: 25px; }
+.feature-item { margin-bottom: 25px;
+ font-family: 'UAF Memory', serif;
+    font-weight: 300; 
+}
 
 .feature-item h3 {
     color: var(--dark-red);
@@ -202,6 +212,8 @@ h3 {
     margin-top: 0;
     color: var(--dark-red);
 }
+
+
 
 /* Адаптація */
 @media (max-width: 650px) {
