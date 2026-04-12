@@ -41,7 +41,8 @@
             width: 100%;
             max-width: 600px;
             min-height: 400px;
-            background-color: rgb(38, 31, 49);
+            background-image: url('assets/img/mainboxbg.png');
+            background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -65,13 +66,13 @@
         .category-title {
             font-size: 2.2em;
             margin: 5px 0;
-            color: #a195f7;
+            color: #cfa55d;
             font-variant: small-caps;
         }
 
         .category-description {
             font-size: 1em;
-            color: #a195f7;
+            color: #cfa55d;
             font-style: italic;
         }
 
@@ -87,14 +88,14 @@
             order: 1; /* Зліва */
             border-top: 40px solid transparent;
             border-bottom: 40px solid transparent;
-            border-right: 50px solid #ffffff;
+            border-right: 50px solid #cfa55d;
         }
 
         .arrow-right {
             order: 3; /* Справа */
             border-top: 40px solid transparent;
             border-bottom: 40px solid transparent;
-            border-left: 50px solid #ffffff;
+            border-left: 50px solid #cfa55d;
         }
 
 
@@ -140,7 +141,7 @@
 </head>
 <body>
  <div class ="title-container">
-    <h1>ОБЕРИ СВОГО БІЙЦЯ!</h1>
+    <h1>ОБЕРИ СВОЮ ДОЛЮ</h1>
  </div>
     <div class="carousel-container">
         <div class="arrow arrow-left" onclick="prevSlide()"></div>
@@ -156,18 +157,18 @@
 
     <script>
         const categories = [
-            { name: "Бард", desc: "Чарівник-артист, загроза для драконів.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/bard.html" },
-            { name: "Воїн", desc: "В ДнД ти можеш бути ким завгодно, але деякі обирають людину-воїна.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/fighter.html" },
-            { name: "Варвар", desc: "Лютий дикий боєць, що впадає в лють. Rawr.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/barbarian.html" },
-            { name: "Друїд", desc: "Захисник природи, що перетворюється на звірів", img: "assets/img/rainbowstar.gif", url: "wiki/classes/druid.html" },
-            { name: "Жрець", desc: "Служитель божества, що використовує божественну магію.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/cleric.html" },
-            { name: "Монах", desc: "Майстер бойових мистецтв, мільйон бонусних атак за хід", img: "assets/img/rainbowstar.gif", url: "wiki/classes/monk.html" },
-            { name: "Паладин", desc: "Святий воїн, що дає священну клятву.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/paladin.html" },
-            { name: "Слідопит", desc: "Мисливець та провідник дикої місцевості.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/ranger.html" },
-            { name: "Пройдисвіт", desc: "Майстер скритності, хитрощів та ударів у спину.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/rogue.html" },
-            { name: "Чаклун", desc: "Той, хто уклав угоду з могутньою сутністю.", img: "assets/img/rainbowstar.gif", url: "wiki/classes/warlock.html" },
-            { name: "Чарівник", desc: "Маг-задрот, що бачить магію як науку", img: "assets/img/rainbowstar.gif", url: "wiki/classes/wizard.html" },
-            { name: "Чарodій", desc: "Народився з крутою магією", img: "assets/img/rainbowstar.gif", url: "wiki/classes/sorcerer.html"}
+            { name: "Бард", desc: "Чарівник-артист, загроза для драконів.", img: "assets/img/bard.png", url: "wiki/classes/bard.html" },
+            { name: "Воїн", desc: "У тебе був безмежний вибір, але ти обрав людину-воїна.", img: "assets/img/fighter.png", url: "wiki/classes/fighter.html" },
+            { name: "Варвар", desc: "Палка. Бити. Повторити.", img: "assets/img/barbarian.png", url: "wiki/classes/barbarian.html" },
+            { name: "Друїд", desc: "Захисник природи, що перетворюється на звірів", img: "assets/img/druid.png", url: "wiki/classes/druid.html" },
+            { name: "Жрець", desc: "Служитель божества, що використовує божественну магію.", img: "assets/img/cleric.png", url: "wiki/classes/cleric.html" },
+            { name: "Монах", desc: "Майстер бойових мистецтв, мільйон бонусних атак за хід", img: "assets/img/monk.png", url: "wiki/classes/monk.html" },
+            { name: "Паладин", desc: "Святий воїн, що дає священну клятву.", img: "assets/img/paladin.png", url: "wiki/classes/paladin.html" },
+            { name: "Слідопит", desc: "Мисливець та провідник дикої місцевості.", img: "assets/img/ranger.png", url: "wiki/classes/ranger.html" },
+            { name: "Пройдисвіт", desc: "Майстер скритності, хитрощів та ударів у спину.", img: "assets/img/rogue.png", url: "wiki/classes/rogue.html" },
+            { name: "Чаклун", desc: "Той, хто уклав угоду з могутньою сутністю.", img: "assets/img/warlock.png", url: "wiki/classes/warlock.html" },
+            { name: "Чарівник", desc: "Маг-задрот, що бачить магію як науку", img: "assets/img/wizard.png", url: "wiki/classes/wizard.html" },
+            { name: "Чародій", desc: "Baby I was born this way", img: "assets/img/sorcerer.png", url: "wiki/classes/sorcerer.html"}
         ];
 
         let currentIndex = 0;
