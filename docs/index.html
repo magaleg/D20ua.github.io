@@ -14,7 +14,6 @@
             align-items: center;
             min-height: 100vh;
             padding-top: 20px;
-            
         }
 
         .title-container {
@@ -35,7 +34,6 @@
             box-sizing: border-box;
         }
 
-
         .category-card-display {
             order: 2; 
             width: 100%;
@@ -43,6 +41,7 @@
             min-height: 400px;
             background-image: url('assets/img/mainboxbg.png');
             background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -51,7 +50,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.9);
             text-decoration: none;
             color: #a195f7;
-            padding: 20px;
+            padding: 20px 40px;
             text-align: center;
             transition: 0.5s;
             box-sizing: border-box;
@@ -75,6 +74,7 @@
             font-size: 1em;
             color: #cfa55d;
             font-style: italic;
+            line-height: 1.4;
         }
 
         .arrow {
@@ -86,39 +86,45 @@
         }
 
         .arrow-left {
-            order: 1; /* Зліва */
+            order: 1;
             border-top: 40px solid transparent;
             border-bottom: 40px solid transparent;
             border-right: 50px solid #cfa55d;
         }
 
         .arrow-right {
-            order: 3; /* Справа */
+            order: 3;
             border-top: 40px solid transparent;
             border-bottom: 40px solid transparent;
             border-left: 50px solid #cfa55d;
         }
 
-
+        /* --- МОБІЛЬНА АДАПТАЦІЯ --- */
         @media (max-width: 650px) {
             .carousel-container {
                 flex-wrap: wrap; 
                 justify-content: center;
                 gap: 15px;
+                padding: 10px;
             }
 
             .category-card-display {
                 order: 1; 
                 width: 95%;
                 min-height: 350px;
-            }
-
-            .category-description {
-                padding: 40px 40px; 
+                /* ЖОРСТКИЙ ВІДСТУП: 15% від ширини картки з боків */
+                padding: 20px 15% !important; 
             }
 
             .category-title {
-                padding: 40px 40px;
+                font-size: 1.8em; /* Зменшено для кращого вигляду на телефоні */
+                width: 100%;
+                margin: 0 auto 10px auto !important;
+            }
+
+            .category-description {
+                width: 100%;
+                margin: 0 auto !important;
             }
 
             .arrow {
