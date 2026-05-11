@@ -61,6 +61,14 @@ h1 {
     color: var(--brown);
 }
 
+.menu-grid {
+    flex-direction: column; 
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 40px;
+        }
+
 @media (max-width: 480px) {
     .scroll {
         padding: 15px;

@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Довідник | Класи</title>
+    <title>D&D Довідник | Головна</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* Основні налаштування */
         body {
             margin: 0;
+            background-color: #1a1a1a; /* Темний фон для всього сайту */
+            color: #cfa55d;
+        }
+
+        /* Перший екран */
+        .hero-section {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh; /* Повний екран */
             padding-top: 20px;
+            box-sizing: border-box;
         }
 
         .title-container {
@@ -21,6 +29,7 @@
             margin-top: 5%;
             margin-bottom: 20px;
         }
+
 
         .carousel-container {
             display: flex;
@@ -35,7 +44,6 @@
         }
 
         .category-card-display {
-            order: 2; 
             width: 100%;
             max-width: 600px;
             min-height: 400px;
@@ -49,7 +57,6 @@
             border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.9);
             text-decoration: none;
-            color: #a195f7;
             padding: 20px 40px;
             text-align: center;
             transition: 0.5s;
@@ -74,99 +81,104 @@
             font-size: 1em;
             color: #cfa55d;
             font-style: italic;
-            line-height: 1.4;
         }
 
-        .arrow {
-            width: 0;
-            height: 0;
-            cursor: pointer;
-            transition: 0.3s;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+        /* Другий екран - Панель кнопок */
+        .navigation-panel {
+            border: 2px solid #cfa55d;
+            min-height: 100vh;
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #1a1a1a, #2c1a1a);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .arrow-left {
-            order: 1;
-            border-top: 40px solid transparent;
-            border-bottom: 40px solid transparent;
-            border-right: 50px solid #cfa55d;
+        
+
+        .menu-button {
+            background: #332211;
+            border: 2px solid #cfa55d;
+            color: #cfa55d;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
         }
 
-        .arrow-right {
-            order: 3;
-            border-top: 40px solid transparent;
-            border-bottom: 40px solid transparent;
-            border-left: 50px solid #cfa55d;
+        .menu-button:hover {
+            background: #cfa55d;
+            color: #1a1a1a;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(207, 165, 93, 0.4);
         }
 
-        @media (max-width: 650px) {
-            .carousel-container {
-                flex-wrap: wrap; 
-                justify-content: center;
-                gap: 15px;
-                padding: 10px;
-            }
-
-            .category-card-display {
-                order: 1; 
-                width: 95%;
-                min-height: 350px;
-                padding: 20px 5% !important; 
-            }
-
-            .category-title {
-                font-size: 1.8em;
-                width: 100%;
-                margin: 0 auto 10px auto !important;
-            }
-
-            .category-description {
-                width: 100%;
-                margin: 0 auto !important;
-            }
-
-            .arrow {
-                order: 2; 
-                margin-top: 10px;
-            }
-
-            .arrow-left {
-                border-top: 20px solid transparent;
-                border-bottom: 20px solid transparent;
-                border-right: 30px solid #d1d5b3;
-                margin-right: 15px;
-            }
-
-            .arrow-right {
-                border-top: 20px solid transparent;
-                border-bottom: 20px solid transparent;
-                border-left: 30px solid #d1d5b3;
-                margin-left: 15px;
-            }
-        }
+        /* Стрілки */
+        .arrow { width: 0; height: 0; cursor: pointer; transition: 0.3s; }
+        .arrow-left { border-top: 40px solid transparent; border-bottom: 40px solid transparent; border-right: 50px solid #cfa55d; }
+        .arrow-right { border-top: 40px solid transparent; border-bottom: 40px solid transparent; border-left: 50px solid #cfa55d; }
 
         .fade { animation: fadeIn 0.5s; }
         @keyframes fadeIn {
             from { opacity: 0.2; transform: scale(0.98); }
             to { opacity: 1; transform: scale(1); }
         }
+
+        @media (max-width: 650px) {
+            .menu-grid { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
- <div class ="title-container">
-    <h1>ОБЕРИ СВОЮ ДОЛЮ</h1>
- </div>
-    <div class="carousel-container">
-        <div class="arrow arrow-left" onclick="prevSlide()"></div>
 
-        <a href="#" id="category-link" class="category-card-display fade">
-            <img src="" id="category-img" class="category-image" alt="Class Image">
-            <h2 id="category-name" class="category-title"></h2>
-            <p id="category-desc" class="category-description"></p>
-        </a>
+    <!-- ПЕРШИЙ ЕКРАН -->
+    <section class="hero-section">
+        <div class="title-container">
+            <h1>ОБЕРИ СВОЮ ДОЛЮ</h1>
+        </div>
+        <div class="carousel-container">
+            <div class="arrow arrow-left" onclick="prevSlide()"></div>
 
-        <div class="arrow arrow-right" onclick="nextSlide()"></div>
-    </div>
+            <a href="#" id="category-link" class="category-card-display fade">
+                <img src="" id="category-img" class="category-image" alt="Class Image">
+                <h2 id="category-name" class="category-title"></h2>
+                <p id="category-desc" class="category-description"></p>
+            </a>
+
+            <div class="arrow arrow-right" onclick="nextSlide()"></div>
+        </div>
+        <!-- Підказка про скрол -->
+        <div style="margin-top: auto; padding-bottom: 20px; font-size: 0.9em; opacity: 0.7;">
+            ▼ Гортай вниз, щоб побачити більше ▼
+        </div>
+    </section>
+
+    <!-- ДРУГИЙ ЕКРАН -->
+    <section class="navigation-panel">
+        <h2>ШВИДКИЙ ДОСТУП</h2>
+        <div class="menu-grid">
+            
+            <a href="wiki/races.html" class="menu-button">Раси</a>
+            <a href="wiki/classes.html" class="menu-button">Класи</a>
+            <a href="wiki/traits.html" class="menu-button">Риси</a>
+            <a href="wiki/backgrounds.html" class="menu-button">Предісторії</a>
+            <a href="wiki/spells.html" class="menu-button">Закляття</a>
+            <a href="wiki/weapons.html" class="menu-button">Зброя</a>
+            <a href="wiki/armor.html" class="menu-button">Обладунки</a>
+            <a href="wiki/gear.html" class="menu-button">Спорядження</a>
+            <a href="wiki/magic-items.html" class="menu-button">Магічні предмети</a>
+            <a href="wiki/bestiary.html" class="menu-button">Бестіарій</a>
+            <a href="sheets/character.html" class="menu-button" style="grid-column: span 1">Аркуш персонажа</a>
+        </div>
+    </section>
 
     <script>
         const categories = [
